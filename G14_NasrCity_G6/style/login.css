@@ -1,0 +1,95 @@
+ :root{
+    --teal: #62c3c3;
+    --teal-dark: #4db3b3;
+    --teal-pale: #bfe6e6;
+    --placeholder: #9aa5a8;
+  }
+
+  body{
+    background: #fff;
+  }
+
+  .tab-input{
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .auth-image-col{
+    min-height: 300px;
+  }
+  @media (min-width: 992px){
+    .auth-image-col{ min-height: 620px; }
+  }
+  .hero-img{
+    background-size: cover;
+    background-position: center;
+    display: none;
+  }
+  #tab-login:checked ~ .row .hero-login,
+  #tab-register:checked ~ .row .hero-register{
+    display: flex;
+  }
+
+  .toggle-switch{
+    position: relative;
+    background: var(--teal-pale);
+  }
+  .toggle-switch label{
+    z-index: 2;
+    cursor: pointer;
+  }
+  .toggle-switch .slider{
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    background: var(--teal-dark);
+    transition: transform .25s ease;
+    z-index: 1;
+  }
+  #tab-register:checked ~ .row .toggle-switch .slider{
+    transform: translateX(100%);
+  }
+  #tab-login:checked ~ .row .toggle-switch label[for="tab-login"],
+  #tab-register:checked ~ .row .toggle-switch label[for="tab-register"]{
+    color: #fff;
+  }
+  #tab-login:checked ~ .row .toggle-switch label[for="tab-register"],
+  #tab-register:checked ~ .row .toggle-switch label[for="tab-login"]{
+    opacity: .55;
+  }
+
+  .panel{ display: none; }
+  #tab-login:checked ~ .row #login-panel,
+  #tab-register:checked ~ .row #register-panel{
+    display: block;
+  }
+
+  .form-control-teal{
+    border-color: var(--teal);
+  }
+  .form-control-teal::placeholder{
+    color: var(--placeholder);
+  }
+  .form-control-teal:focus{
+    border-color: var(--teal-dark);
+    box-shadow: 0 0 0 .2rem rgba(98,195,195,.2);
+  }
+  .btn-teal{
+    background-color: var(--teal-dark);
+    color: #fff;
+  }
+  .btn-teal:hover{
+    background-color: #3d9d9d;
+    color: #fff;
+  }
+  .password-eye{
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
